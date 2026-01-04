@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Saloni 💖</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    @font-face {
+      font-family: 'RomanticFont';
+      src: url('assets/fonts/DancingScript-Regular.ttf') format('truetype');
+    }
+
+    body {
+      font-family: 'RomanticFont', cursive;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+      overflow-x: hidden;
+      background: #0a0a1a;
+      cursor: url('assets/heart-cursor.png'), auto;
+    }
+
+    /* Starry Background */
+    #starry-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(to bottom, #000428, #004e92);
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      background-color: #fff;
+      border-radius: 50%;
+      animation: twinkle var(--duration) infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+
+      0%,
+      100% {
+        opacity: 0.2;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    .shooting-star {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0), #fff);
+      border-radius: 50%;
+      animation: shoot linear infinite;
+    }
+
+    @keyframes shoot {
+      0% {
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+      }
+
+      70%,
+      100% {
+        transform: translateX(300px) translateY(150px);
+        opacity: 0;
+      }
+    }
+
+    /* Header Section */
+    .birthday-header {
+      text-align: center;
+      padding: 100px 20px;
+      position: relative;
+    }
+
+    .birthday-title {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4;
+      animation: glow 2s ease-in-out infinite alternate;
+      letter-spacing: 0.5px;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4;
+      }
+
+      to {
+        text-shadow: 0 0 15px #ff69b4, 0 0 25px #ff69b4, 0 0 35px #ff69b4;
+      }
+    }
+
+    .balloon {
+      position: absolute;
+      width: 40px;
+      height: 60px;
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-100px) rotate(10deg);
+      }
+    }
+
+    /* Love Story Section */
+    .love-story {
+      padding: 80px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 50px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #ff69b4, #9400d3);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 50px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.5s ease;
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -40px;
+      top: 10px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #ff69b4;
+      border: 3px solid #fff;
+    }
+
+    .timeline-date {
+      font-weight: bold;
+      color: #ff69b4;
+      margin-bottom: 10px;
+    }
+
+    .timeline-content {
+      background: rgba(255, 105, 180, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 3px solid #ff69b4;
+    }
+
+    /* VS Code Editor */
+    .code-editor {
+      background: #1e1e1e;
+      border-radius: 8px;
+      overflow: hidden;
+      max-width: 800px;
+      margin: 50px auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .editor-header {
+      background: #252526;
+      padding: 8px 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .editor-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .editor-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .editor-dot.red {
+      background: #ff5f56;
+    }
+
+    .editor-dot.yellow {
+      background: #ffbd2e;
+    }
+
+    .editor-dot.green {
+      background: #27c93f;
+    }
+
+    .editor-title {
+      margin-left: 15px;
+      font-family: monospace;
+      color: #969696;
+      font-size: 0.9rem;
+    }
+
+    .editor-content {
+      padding: 20px;
+      font-family: 'Courier New', monospace;
+      color: #d4d4d4;
+      position: relative;
+      min-height: 200px;
+      white-space: pre-wrap;
+      overflow: visible;
+      word-wrap: break-word;
+    }
+
+    .code-line {
+      margin-bottom: 10px;
+      white-space: pre-wrap;
+      overflow: visible;
+      word-wrap: break-word;
+    }
+
+    .code-keyword {
+      color: #569cd6;
+    }
+
+    .code-string {
+      color: #ce9178;
+    }
+
+    .code-comment {
+      color: #6a9955;
+    }
+
+    .code-number {
+      color: #b5cea8;
+    }
+
+    .code-operator {
+      color: #d4d4d4;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 16px;
+      background: #fff;
+      animation: blink 1s infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    /* Heart Puzzle */
+    .puzzle-container {
+      max-width: 600px;
+      margin: 50px auto;
+      text-align: center;
+    }
+
+    .puzzle-board {
+      width: 300px;
+      height: 300px;
+      margin: 20px auto;
+      position: relative;
+      background: rgba(255, 105, 180, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .puzzle-piece {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background-size: 300px 300px;
+      cursor: move;
+      transition: transform 0.2s;
+      z-index: 1;
+    }
+
+    .puzzle-piece:hover {
+      transform: scale(1.05);
+      z-index: 10;
+    }
+
+    .puzzle-message {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.5rem;
+      color: #ff69b4;
+    }
+
+    /* Heart shape for puzzle */
+    .heart-shape {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle at 30% 30%, #ff69b4, #9400d3);
+      clip-path: path('M150,75 C165,45 195,35 225,55 C255,75 270,105 240,135 C210,165 150,195 150,195 C150,195 90,165 60,135 C30,105 45,75 75,55 C105,35 135,45 150,75 Z');
+      pointer-events: none;
+      opacity: 0.3;
+    }
+
+    /* Secret Button */
+    .secret-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(255, 105, 180, 0.3);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff69b4;
+      font-size: 0.8rem;
+      z-index: 100;
+    }
+
+    .secret-reveal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s;
+    }
+
+    .secret-reveal.show {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .secret-content {
+      text-align: center;
+      max-width: 560px;
+      padding: 30px;
+      background: rgba(255, 105, 180, 0.1);
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ff69b4;
+      opacity: 0;
+    }
+
+    /* Music Player */
+    .music-player {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 100;
+      background: rgba(255, 105, 180, 0.3);
+      border-radius: 50px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      backdrop-filter: blur(5px);
+    }
+
+    .music-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #ff69b4;
+      border: none;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .birthday-title {
+        font-size: 2.5rem;
+      }
+
+      .timeline {
+        padding-left: 30px;
+      }
+
+      .timeline::before {
+        left: 10px;
+      }
+
+      .timeline-item::before {
+        left: -25px;
+        width: 15px;
+        height: 15px;
+      }
+
+      .code-editor {
+        margin: 30px 15px;
+      }
+
+      .puzzle-board {
+        width: 250px;
+        height: 250px;
+      }
+
+      .puzzle-piece {
+        width: 125px;
+        height: 125px;
+      }
+    }
+
+    /* Heart Cursor Trail */
+    .heart-trail {
+      position: absolute;
+      pointer-events: none;
+      width: 20px;
+      height: 20px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff69b4"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center center;
+      background-size: contain;
+      z-index: 9999;
+      opacity: 0;
+      transform: translate(-50%, -50%);
+      animation: fadeOut 1s forwards;
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+      }
+    }
+
+    /* Glassmorphism card */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(10px);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .section-title {
+      color: #ff69b4;
+      font-size: 2.2rem;
+      margin-bottom: 14px;
+      text-shadow: 0 0 16px rgba(255, 105, 180, 0.35);
+      letter-spacing: 0.5px;
+    }
+
+    .signature {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 1.2rem;
+    }
+
+    /* Hero photo frame */
+    .photo-frame {
+      width: min(320px, 85vw);
+      margin: 0 auto;
+      padding: 6px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(255, 105, 180, 0.95), rgba(148, 0, 211, 0.75));
+      box-shadow: 0 22px 70px rgba(255, 105, 180, 0.18);
+      transform: rotate(-1.5deg);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .photo-frame:hover {
+      transform: rotate(0deg) scale(1.02);
+      box-shadow: 0 26px 90px rgba(255, 105, 180, 0.25);
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Starry Background -->
+  <div id="starry-bg"></div>
+
+  <!-- Birthday Header -->
+  <section class="birthday-header">
+    <h1 class="birthday-title">Happy Birthday Saloni 💖</h1>
+    <p class="lead">I know it’s a little late… but it’s made with a lot of heart ✨</p>
+
+    <!-- Balloons -->
+    <div class="balloon" style="left: 10%; background-color: #ff69b4; animation-delay: 0s;"></div>
+    <div class="balloon" style="left: 20%; background-color: #9400d3; animation-delay: 1s;"></div>
+    <div class="balloon" style="left: 30%; background-color: #ff69b4; animation-delay: 2s;"></div>
+    <div class="balloon" style="right: 10%; background-color: #9400d3; animation-delay: 0.5s;"></div>
+    <div class="balloon" style="right: 20%; background-color: #ff69b4; animation-delay: 1.5s;"></div>
+    <div class="balloon" style="right: 30%; background-color: #9400d3; animation-delay: 2.5s;"></div>
+  </section>
+
+  <!-- Photo + Message -->
+  <section class="container my-5" id="photo">
+    <div class="row align-items-center g-4">
+      <div class="col-md-5 text-center">
+        <div class="photo-frame">
+          <!-- If your photo is in the same folder as index.html, keep pic.jpeg -->
+          <!-- If it's in assets/photos/, change to assets/photos/pic.jpeg -->
+          <img src="pic.jpeg" alt="Saloni" class="hero-photo" />
+        </div>
+        <p class="small mt-3 text-white-50">My favorite photo of you ✨</p>
+      </div>
+
+      <div class="col-md-7">
+        <div class="glass-card">
+          <h2 class="section-title">To Saloni — the realest one 💖</h2>
+
+          <p class="lead mb-3">
+            I first saw your profile on <b>Jeevansathi</b>… and I won’t lie, it stood out.
+          </p>
+
+          <p class="mb-3">
+            But the first time I saw you in real life — at <b>The Hub, Indore</b> — that’s when I genuinely felt like:
+            <b>“I should approach her.”</b> ✨
+          </p>
+
+          <p class="mb-0">
+            Then I found out we are in the same company — <b>Infosys</b> — and I finally gathered courage and reached out
+            on <b>LinkedIn</b>.
+           <p class="mb-0">
+  And what I liked the most? Your <b>realness</b>. You never try to hide anything.
+  The way you said: <b>“mujhse aap is baat ki bilkul ummid mat rakhna :)”</b> —
+  I swear, I enjoyed that sentence too much 😄💗
+</p>
+
+<p class="mt-3 mb-0">
+  And one more thing… your <b>eyes</b> are seriously too pretty.
+  Like, they have that calm + sparkle that you don’t forget easily ✨👀
+</p>
+
+          </p>
+
+          <div class="signature mt-3">— A little late, but genuinely yours</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Love Story Timeline -->
+  <section class="love-story">
+    <h2 class="text-center mb-5" style="color: #ff69b4;">Our Beautiful Journey</h2>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">1st January — Your Birthday 💖</div>
+        <div class="timeline-content">
+          Your birthday is on <b>1st Jan</b>… and I wanted to do something special.
+          But I couldn’t get proper time to finish this page then.
+          So I’m giving it to you on <b>4th Jan</b> — a little late, but made with care ✨
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">First Time: Jeevansathi Profile</div>
+        <div class="timeline-content">
+          The very first time I “noticed” you was on <b>Jeevansathi</b>.
+          Something about your profile felt simple, clear, and genuine.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">First Time I Saw You in Real (The Hub, Indore)</div>
+        <div class="timeline-content">
+          Then I saw you in real life at <b>The Hub, Indore</b>.
+          That moment hit different — and I actually felt like approaching you.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Same Company: Infosys</div>
+        <div class="timeline-content">
+          When I realized we are in the same company — <b>Infosys</b> —
+          it felt like life was quietly creating a connection.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">I Reached Out on LinkedIn</div>
+        <div class="timeline-content">
+          After seeing you in real, I finally took the step and approached you on <b>LinkedIn</b>.
+          Simple message… but with genuine intention.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">What I Liked the Most</div>
+        <div class="timeline-content">
+          Your <b>realness</b>. You don’t hide things, you don’t pretend.
+          That honesty is rare — and truly impressive.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">That One Sentence I Still Remember 😄</div>
+        <div class="timeline-content">
+          When you said: <b>“mujhse aap is baat ki bilkul ummid mat rakhna :)”</b>
+          I don’t know why, but I enjoyed that sentence too much.
+          It was so you — straight, clear, and real 💗
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Vibes That Can Match</div>
+        <div class="timeline-content">
+          And honestly… <b>kahin-kahin thoda vibes match</b> bhi ho jaate hain.
+          Kabhi-kabhi, bas small talks me bhi ek comfort feel hota hai.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Today — 4th Jan ✨</div>
+        <div class="timeline-content">
+          So yes, it’s a little late…
+          but if something is made with effort, it still counts.
+          Happy Birthday once again, Saloni 💖
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VS Code Editor Confession -->
+  <section class="code-editor">
+    <div class="editor-header">
+      <div class="editor-dots">
+        <div class="editor-dot red"></div>
+        <div class="editor-dot yellow"></div>
+        <div class="editor-dot green"></div>
+      </div>
+      <div class="editor-title">feelings.js</div>
+    </div>
+    <div class="editor-content" id="editor-content"></div>
+  </section>
+
+  <!-- Heart Puzzle -->
+  <section class="puzzle-container">
+    <h2 style="color: #ff69b4;">This puzzle is still incomplete :joy</h2>
+    <p>Drag the pieces to complete the heart and reveal a message</p>
+
+    <div class="puzzle-board" id="puzzle-board">
+      <div class="heart-shape" id="heart-shape"></div>
+
+      <div class="puzzle-piece" id="piece1" style="top: 0; left: 0;"></div>
+      <div class="puzzle-piece" id="piece2" style="top: 0; left: 150px;"></div>
+      <div class="puzzle-piece" id="piece3" style="top: 150px; left: 0;"></div>
+      <div class="puzzle-piece" id="piece4" style="top: 150px; left: 150px;"></div>
+    </div>
+
+    <div class="puzzle-message" id="puzzle-message">
+     
+    </div>
+  </section>
+
+  <!-- Secret Button -->
+  <div class="secret-button" id="secret-button">?</div>
+
+  <!-- Secret Reveal -->
+  <div class="secret-reveal" id="secret-reveal">
+    <div class="secret-content">
+      <h2 style="color: #ff69b4;">You Found My Secret!</h2>
+
+      <p>
+        Your birthday was on <b>1st Jan</b>… and I know I’m late.
+        But I wanted to give you something that feels personal.
+        That’s why this page is coming to you on <b>4th Jan</b> 💗
+      </p>
+
+      <p>
+        I first noticed you on <b>Jeevansathi</b>, then saw you in real at <b>The Hub, Indore</b>,
+        and after that I finally approached you on <b>LinkedIn</b> — because we’re in <b>Infosys</b>.
+      </p>
+
+      <p>
+        And the best part? Your <b>realness</b>.
+        Also… that line <b>“mujhse aap is baat ki bilkul ummid mat rakhna :)”</b>
+        lives in my head rent-free 😄💗
+      </p>
+
+      <button class="btn btn-sm btn-outline-light mt-3" id="close-secret">Close</button>
+    </div>
+  </div>
+
+  <!-- Music Player -->
+  <div class="music-player">
+    <button class="music-toggle" id="music-toggle" aria-label="Toggle music">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path
+          d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z" />
+        <path
+          d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z" />
+        <path
+          d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707z" />
+        <path
+          d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z" />
+      </svg>
+    </button>
+    <audio id="bg-music" loop>
+      <source src="https://stream.laut.fm/lofi" type="audio/mpeg" />
+    </audio>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Starry Background
+    function createStars() {
+      const container = document.getElementById('starry-bg');
+      const starCount = 200;
+
+      for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+
+        const size = Math.random() * 2 + 1;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+
+        star.style.setProperty('--duration', `${Math.random() * 3 + 2}s`);
+
+        container.appendChild(star);
+      }
+
+      setInterval(() => {
+        const shootingStar = document.createElement('div');
+        shootingStar.className = 'shooting-star';
+
+        const startX = Math.random() * 100;
+        const startY = Math.random() * 30;
+        shootingStar.style.left = `${startX}%`;
+        shootingStar.style.top = `${startY}%`;
+
+        const duration = Math.random() * 2 + 1;
+        shootingStar.style.animationDuration = `${duration}s`;
+
+        container.appendChild(shootingStar);
+
+        setTimeout(() => {
+          shootingStar.remove();
+        }, duration * 1000);
+      }, 2000);
+    }
+
+    // Love Story Timeline Animation
+    function animateTimeline() {
+      const timelineItems = document.querySelectorAll('.timeline-item');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      timelineItems.forEach(item => observer.observe(item));
+    }
+
+    // VS Code Editor Typing Effect
+    function typeCode() {
+      const editor = document.getElementById('editor-content');
+      const codeLines = [
+        '<span class="code-keyword">const</span> <span class="code-operator">myFeelings</span> <span class="code-operator">=</span> <span class="code-operator">{</span>',
+        '  <span class="code-operator">to:</span> <span class="code-string">"Saloni 💖"</span><span class="code-operator">,</span>',
+        '  <span class="code-operator">birthday:</span> <span class="code-string">"1st Jan (I’m giving this on 4th Jan)"</span><span class="code-operator">,</span>',
+        '  <span class="code-operator">firstSawProfile:</span> <span class="code-string">"Jeevansathi"</span><span class="code-operator">,</span>',
+        '  <span class="code-operator">firstSawInReal:</span> <span class="code-string">"The Hub, Indore"</span><span class="code-operator">,</span>',
+        '  <span class="code-operator">sameCompany:</span> <span class="code-string">"Infosys"</span><span class="code-operator">,</span>',
+        '  <span class="code-operator">approachedOn:</span> <span class="code-string">"LinkedIn"</span><span class="code-operator">,</span>',
+        '  <span class="code-operator">whatILikeMost:</span> <span class="code-string">"Your realness — you never hide anything"</span><span class="code-operator">,</span>',
+        '  <span class="code-operator">favoriteLine:</span> <span class="code-string">"mujhse aap is baat ki bilkul ummid mat rakhna :)"</span><span class="code-operator">,</span>',
+        '  <span class="code-operator">reaction:</span> <span class="code-string">"I enjoyed that sentence too much 😄"</span><span class="code-operator">,</span>',
+        '  <span class="code-operator">vibes:</span> <span class="code-string">"Kahin-kahin thoda vibes match ho jaata hai"</span><span class="code-operator">,</span>',
+        '  <span class="code-operator">wish:</span> <span class="code-string">"May your year be calm, happy, and full of wins"</span>',
+        '<span class="code-operator">};</span>',
+        '',
+        '<span class="code-keyword">function</span> <span class="code-operator">birthdayWish</span><span class="code-operator">()</span> <span class="code-operator">{</span>',
+        '  <span class="code-keyword">return</span> <span class="code-string">`Happy Birthday, ${myFeelings.to} ✨`</span><span class="code-operator">;</span>',
+        '<span class="code-operator">}</span>',
+        '',
+        '<span class="code-comment">// I saw your profile first… then I saw you in real</span>',
+        '<span class="code-comment">// After that I finally approached you on LinkedIn</span>',
+        '<span class="code-comment">// Late gift… but real feelings 💖</span>'
+      ];
+
+      let currentLine = 0;
+      let currentChar = 0;
+      let typingInterval;
+
+      function typeNextChar() {
+        if (currentLine >= codeLines.length) {
+          const cursor = document.createElement('span');
+          cursor.className = 'cursor';
+          editor.appendChild(cursor);
+          clearInterval(typingInterval);
+          return;
+        }
+
+        if (currentChar === 0) {
+          const lineDiv = document.createElement('div');
+          lineDiv.className = 'code-line';
+          editor.appendChild(lineDiv);
+        }
+
+        const currentLineDiv = editor.lastChild;
+
+        if (currentChar < codeLines[currentLine].length) {
+          currentLineDiv.innerHTML += codeLines[currentLine].charAt(currentChar);
+          currentChar++;
+        } else {
+          currentLine++;
+          currentChar = 0;
+        }
+      }
+
+      typingInterval = setInterval(typeNextChar, 45);
+    }
+
+    // Heart Puzzle Game
+    function setupPuzzle() {
+      const pieces = document.querySelectorAll('.puzzle-piece');
+      const board = document.getElementById('puzzle-board');
+      const message = document.getElementById('puzzle-message');
+
+      pieces.forEach((piece) => {
+        piece.style.position = 'absolute';
+        piece.dataset.originalLeft = piece.style.left;
+        piece.dataset.originalTop = piece.style.top;
+
+        const x = Math.random() * 200 - 50;
+        const y = Math.random() * 200 - 50;
+        piece.style.transform = `translate(${x}px, ${y}px)`;
+
+        piece.draggable = true;
+
+        const clipPath = getPieceClipPath(piece.id);
+        piece.style.clipPath = clipPath;
+        piece.style.backgroundColor = '#ff69b4';
+      });
+
+      pieces.forEach(piece => {
+        piece.addEventListener('dragstart', (e) => {
+          e.dataTransfer.setData('text/plain', piece.id);
+          setTimeout(() => piece.style.opacity = '0.4', 0);
+        });
+
+        piece.addEventListener('dragend', () => {
+          piece.style.opacity = '1';
+        });
+      });
+
+      board.addEventListener('dragover', (e) => {
+        e.preventDefault();
+      });
+
+      board.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const id = e.dataTransfer.getData('text/plain');
+        const piece = document.getElementById(id);
+
+        const rect = board.getBoundingClientRect();
+        const x = e.clientX - rect.left - 75;
+        const y = e.clientY - rect.top - 75;
+
+        piece.style.left = `${x}px`;
+        piece.style.top = `${y}px`;
+        piece.style.transform = 'none';
+
+        if (isPuzzleComplete()) {
+          message.style.display = 'block';
+          for (let i = 0; i < 50; i++) createConfetti();
+        }
+      });
+
+      function getPieceClipPath(id) {
+        switch (id) {
+          case 'piece1': return 'path("M150,0 L150,150 L0,150 C0,75 75,0 150,0 Z")';
+          case 'piece2': return 'path("M150,0 L150,150 L300,150 C300,75 225,0 150,0 Z")';
+          case 'piece3': return 'path("M0,150 L150,150 L150,300 C75,300 0,225 0,150 Z")';
+          case 'piece4': return 'path("M150,150 L150,300 L300,300 C300,225 225,300 150,300 Z")';
+          default: return '';
+        }
+      }
+
+      function isPuzzleComplete() {
+        const tolerance = 30;
+
+        return Array.from(pieces).every(piece => {
+          const currentLeft = parseInt(piece.style.left);
+          const currentTop = parseInt(piece.style.top);
+          const originalLeft = parseInt(piece.dataset.originalLeft);
+          const originalTop = parseInt(piece.dataset.originalTop);
+
+          return Math.abs(currentLeft - originalLeft) < tolerance &&
+            Math.abs(currentTop - originalTop) < tolerance;
+        });
+      }
+
+      function createConfetti() {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = `${Math.random() * 100}%`;
+        confetti.style.top = `${Math.random() * 100}%`;
+        confetti.style.backgroundColor = `hsl(${Math.random() * 60 + 300}, 100%, 70%)`;
+        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+        confetti.style.width = `${Math.random() * 10 + 5}px`;
+        confetti.style.height = `${Math.random() * 10 + 5}px`;
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+          confetti.style.opacity = '1';
+          confetti.style.transform = `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 + 100}px) rotate(${Math.random() * 360}deg)`;
+          confetti.style.transition = `all ${Math.random() * 1 + 0.5}s ease-out`;
+
+          setTimeout(() => confetti.remove(), 1500);
+        }, 0);
+      }
+    }
+
+    // Secret Button
+    function setupSecretButton() {
+      const button = document.getElementById('secret-button');
+      const reveal = document.getElementById('secret-reveal');
+      const closeBtn = document.getElementById('close-secret');
+
+      button.addEventListener('click', () => {
+        reveal.classList.add('show');
+
+        for (let i = 0; i < 100; i++) {
+          setTimeout(() => {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = `${Math.random() * 100}%`;
+            confetti.style.top = `${Math.random() * 100}%`;
+            confetti.style.backgroundColor = `hsl(${Math.random() * 60 + 300}, 100%, 70%)`;
+            reveal.appendChild(confetti);
+
+            setTimeout(() => {
+              confetti.style.opacity = '1';
+              confetti.style.transform = `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 + 100}px) rotate(${Math.random() * 360}deg)`;
+              confetti.style.transition = `all ${Math.random() * 1 + 0.5}s ease-out`;
+
+              setTimeout(() => confetti.remove(), 1500);
+            }, 0);
+          }, i * 50);
+        }
+      });
+
+      closeBtn.addEventListener('click', () => {
+        reveal.classList.remove('show');
+      });
+    }
+
+    // Music Player
+    function setupMusicPlayer() {
+      const toggle = document.getElementById('music-toggle');
+      const music = document.getElementById('bg-music');
+
+      music.volume = 0.3;
+      const playPromise = music.play();
+
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          toggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/></svg>';
+        });
+      }
+
+      toggle.addEventListener('click', () => {
+        if (music.paused) {
+          music.play();
+          toggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/><path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/><path d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707z"/><path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"/></svg>';
+        } else {
+          music.pause();
+          toggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/></svg>';
+        }
+      });
+    }
+
+    // Heart Cursor Trail
+    function setupHeartTrail() {
+      document.addEventListener('mousemove', (e) => {
+        const heart = document.createElement('div');
+        heart.className = 'heart-trail';
+        heart.style.left = `${e.clientX}px`;
+        heart.style.top = `${e.clientY}px`;
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 1000);
+      });
+    }
+
+    // Initialize
+    window.addEventListener('DOMContentLoaded', () => {
+      createStars();
+      animateTimeline();
+      typeCode();
+      setupPuzzle();
+      setupSecretButton();
+      setupMusicPlayer();
+      setupHeartTrail();
+    });
+  </script>
+</body>
+
+</html>
